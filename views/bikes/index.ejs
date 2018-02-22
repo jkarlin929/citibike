@@ -1,3 +1,26 @@
 <%# views/bikes/index.ejs %>
+<%- include ../partials/boilerplate %>
 
 <h1>BIKES</h1>
+
+<h3>My Google Maps Demo</h3>
+<p>Dark green routes indicated dedicated bicycle routes. Light green routes indicate streets with dedicated “bike lanes.” Dashed routes indicate streets or paths otherwise recommended for bicycle usage.</p>
+
+<div id="map"></div>
+  <script>
+    function initMap() {
+      let position = {lat: 40.76727216, lng: -73.99392888};
+      let map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: position
+        });
+      let bikeLayer = new google.maps.BicyclingLayer();
+      bikeLayer.setMap(map);
+      let marker = new google.maps.Marker({
+        position: position,
+        map: map
+        });
+      }
+  </script>
+
+<%- include ../partials/endplate %>

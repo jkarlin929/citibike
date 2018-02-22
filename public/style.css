@@ -1,0 +1,12 @@
+h1{
+  color: blue;
+}
+
+h3{
+  background-color: red;
+}
+
+#map{
+  height: 600px;
+  width: 60%;
+}
