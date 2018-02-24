@@ -6,15 +6,15 @@
 <h3>My Google Maps Demo</h3>
 <p>Dark green routes indicated dedicated bicycle routes. Light green routes indicate streets with dedicated “bike lanes.” Dashed routes indicate streets or paths otherwise recommended for bicycle usage.</p>
 
-<h2>All Stations</h2>
+<a href="<%=`/bikes/${bikes.id}` %>">All Stations</a>
 
 <% let citiBikeStation = bikes %>
 <%= console.log(citiBikeStation) %>
 <% for(j = 0; j < citiBikeStation.length; j++)
 { %>
+
   <p> <%= citiBikeStation[j].stationName %> </p>
 <% } %>
-
 
 <%- include ../partials/endplate %>
 
