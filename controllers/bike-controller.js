@@ -53,7 +53,15 @@ bikeController.update = (req, res) => {
 };
 
 bikeController.new = (req, res) => {
-  res.render('bikes/new')
+  Bike.findAll()
+  .then(bike => {
+    res.render('bikes/new',{
+      bikes: bike
+    })
+    .catch(err => {
+      res.status(400).json(err)
+    });
+  });
 };
 
 bikeController.create = (req, res) => {
