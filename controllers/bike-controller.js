@@ -27,5 +27,30 @@ bikeController.show = (req, res) => {
   })
 }
 
+bikeController.edit = (req, res) => {
+  Bike.findById(req.params.id)
+  .then(bike => {
+    res.render('bikes/edit', {
+      bikes: bike
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    })
+  })
+}
+
+bikeController.update = (req, res) => {
+  Bike.update({
+    intersection: req.body.intersection,
+    rating: req.body.rating
+  }, req.params.id)
+  .then(() => {
+    res.redirect(`bike/${req.params.id}`)
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  });
+};
+
 
 module.exports = bikeController;

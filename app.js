@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const PORT = process.env.PORT || 3000;
 const bikesRouter = require('./routes/bike-routes');
+const bikeRouter = require('./routes/bike-routes');
 
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({
@@ -24,8 +25,6 @@ app.listen(PORT, () => {
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
-const bikeRouter = require('./routes/bike-routes');
 
 app.use('/bike', bikeRouter)
 

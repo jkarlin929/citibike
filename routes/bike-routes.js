@@ -6,4 +6,8 @@ bikeRouter.get('/', bikeController.index)
 
 bikeRouter.get('/:id', bikeController.show)
 
+bikeRouter.get('/:id/edit', bikeController.edit)
+
+bikeRouter.put('/:id', bikeController.update)
+
 module.exports = bikeRouter;
