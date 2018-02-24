@@ -6,14 +6,13 @@ axios({
   method: 'get',
   url: 'https://feeds.citibikenyc.com/stations/stations.json'
 }).then(data => {
-  // console.log(data.data.stationBeanList)
   res.render('bikes/index', {
     bikes: data.data.stationBeanList
   })
 }).catch(err => {
-  console.log(err)
-  })
-}
+  res.status(400).json(err);
+  });
+};
 
 
-module.exports = bikeController
+module.exports = bikeController;
