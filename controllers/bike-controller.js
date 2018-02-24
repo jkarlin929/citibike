@@ -52,5 +52,31 @@ bikeController.update = (req, res) => {
   });
 };
 
+bikeController.new = (req, res) => {
+  res.render('bikes/new')
+};
+
+bikeController.create = (req, res) => {
+  Bike.create({
+    intersection: req.body.intersection,
+    rating: req.body.rating
+  })
+  .then(bike => {
+    res.redirect(`/bike/${bikes.id}`)
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  });
+};
+
+bikeController.destroy = (req, res) => {
+  Bike.destroy(req.params.id)
+    .then(() => {
+      res.redirect('/bike')
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+};
 
 module.exports = bikeController;

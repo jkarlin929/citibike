@@ -10,4 +10,10 @@ bikeRouter.get('/:id/edit', bikeController.edit)
 
 bikeRouter.put('/:id', bikeController.update)
 
+bikeRouter.get('/new', bikeController.new)
+
+bikeRouter.post('/', bikeController.create)
+
+bikeRouter.delete('/:id', bikeController.destroy)
+
 module.exports = bikeRouter;

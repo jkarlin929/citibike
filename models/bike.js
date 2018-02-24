@@ -22,4 +22,26 @@ Bike.update = (bike, id) => {
   );
 };
 
+Bike.create = bike => {
+  return db.one(
+    `
+      INSERT INTO favorite_locations
+      (intersection, rating)
+      VALUES ($1, $2) RETURNING *
+    `,
+    [bike.intersection, bike.rating]
+  );
+};
+
+Bike.destroy = id => {
+  return db.none(
+    `
+    DELETE FROM favorite_locations
+    WHERE id = $1
+    `,
+    [id]
+  );
+};
+
+
 module.exports = Bike;

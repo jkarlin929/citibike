@@ -8,12 +8,16 @@
 
 <a href="<%=`/bike/${bikes.id}` %>">All Stations</a>
 
+<br />
+
+<a href="/bike/new">Add Location To Favorites</a>
+
 <% let citiBikeStation = bikes %>
 <%= console.log(citiBikeStation) %>
 <% for(j = 0; j < citiBikeStation.length; j++)
 { %>
 
-  <p> <%= citiBikeStation[j].stationName %> </p>
+  <p><%= citiBikeStation[j].stationName %></p>
 <% } %>
 
 <%- include ../partials/endplate %>
