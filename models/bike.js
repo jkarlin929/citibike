@@ -7,7 +7,9 @@ Bike.findAll = () => {
 };
 
 Bike.findById = id => {
-  return db.oneOrNone(`SELECT * FROM favorite_locations WHERE id = $1`, [id]);
+  return db.oneOrNone(`SELECT * FROM favorite_locations WHERE id = $1`,
+    [id]
+  );
 };
 
 Bike.update = (bike, id) => {

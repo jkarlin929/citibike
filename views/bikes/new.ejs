@@ -2,6 +2,14 @@
 
 <h1> Create a Location </h1>
 
+<% let citiBikeStation = bikes %>
+<%= console.log(citiBikeStation) %>
+<% for(j = 0; j < citiBikeStation.length; j++)
+{ %>
+
+  <p><%= citiBikeStation[j].stationName %></p>
+<% } %>
+
 <form action="/bike" method="POST">
   <label for="intersection">Intersection</label>
   <input id="intersection" type="text" name="intersection" />
@@ -14,5 +22,5 @@
   <br />
 
   <input type="submit" value="Create Location" />
-
+</form>
   <a href="/bike">Cancel</a>
