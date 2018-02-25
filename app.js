@@ -12,8 +12,9 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-
+app.use(morgan('dev'));
 app.use(express.static('public'));
+app.use('/bike', bikeRouter)
 
 app.get('/', (req, res) => {
   res.send('Hello Friend');
@@ -26,5 +27,9 @@ app.listen(PORT, () => {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use('/bike', bikeRouter)
+
+app.get('*', (req, res) => {
+  res.status(404).send('Where is your bike? Not here.');
+})
+
 

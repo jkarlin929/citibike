@@ -20,8 +20,7 @@ bikeController.show = (req, res) => {
   .then(bike => {
     res.render('bikes/show', {
       bikes: bike
-    })
-    .catch(err => {
+    }).catch(err => {
       res.status(400).json(err);
     });
   })
@@ -31,9 +30,9 @@ bikeController.edit = (req, res) => {
   Bike.findById(req.params.id)
   .then(bike => {
     res.render('bikes/edit', {
-      bikes: bike
-    })
-    .catch(err => {
+      intersection: intersection,
+      rating: rating
+    }).catch(err => {
       res.status(400).json(err);
     })
   })
@@ -45,9 +44,7 @@ bikeController.update = (req, res) => {
     rating: req.body.rating
   }, req.params.id)
   .then(() => {
-    res.redirect(`bike/${req.params.id}`)
-  })
-  .catch(err => {
+    res.redirect(`bike/${req.params.id}`)}).catch(err => {
     res.status(400).json(err);
   });
 };
@@ -57,8 +54,7 @@ bikeController.new = (req, res) => {
   .then(bike => {
     res.render('bikes/new',{
       bikes: bike
-    })
-    .catch(err => {
+    }).catch(err => {
       res.status(400).json(err)
     });
   });
@@ -71,8 +67,7 @@ bikeController.create = (req, res) => {
   })
   .then(bike => {
     res.redirect(`/bike/${bikes.id}`)
-  })
-  .catch(err => {
+  }).catch(err => {
     res.status(400).json(err);
   });
 };
@@ -81,8 +76,7 @@ bikeController.destroy = (req, res) => {
   Bike.destroy(req.params.id)
     .then(() => {
       res.redirect('/bike')
-    })
-    .catch(err => {
+    }).catch(err => {
       res.status(400).json(err);
     });
 };

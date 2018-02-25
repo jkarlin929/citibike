@@ -4,6 +4,7 @@
 <h1>BIKES</h1>
 
 <h3>My Google Maps Demo</h3>
+
 <p>Dark green routes indicated dedicated bicycle routes. Light green routes indicate streets with dedicated “bike lanes.” Dashed routes indicate streets or paths otherwise recommended for bicycle usage.</p>
 
 <a href="<%=`/bike/${bikes.id}` %>">All Stations</a>
@@ -25,6 +26,9 @@
         zoom: 12,
         center: position
         });
+      let icon = {
+        bikeIcon: <i class="fas fa-bicycle"></i>
+      }
       //add bike routes to google map
       let bikeLayer = new google.maps.BicyclingLayer();
       bikeLayer.setMap(map);
@@ -38,10 +42,16 @@
         let marker = new google.maps.Marker({
         position: {lat: citiBikeData[i].latitude, lng: citiBikeData[i].longitude},
         map: map
-    })
-      }
+    });
+        let contentString = '<div id="content">' + '<div id="sitNotice">' + '</div>' + '<h1 id="firstHeading" class="firstHeading"> Station Name: ' + citiBikeData[i].stationName + '</h1>' + '<div id="bodyContent">' + '<p>Available Docks: ' + citiBikeData[i].availableDocks + '</p>' + '<p>Total Docks: ' + citiBikeData[i].totalDocks + '</p>' + '<p>Available Bikes: ' + citiBikeData[i].availableBikes + '</p>' + '</div>'
 
-
+        let infoWindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+        marker.addListener('click', function() {
+          infoWindow.open(map, marker);
+        });
+  }
 }
 </script>
 
