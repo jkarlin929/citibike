@@ -66,7 +66,8 @@ bikeController.create = (req, res) => {
     rating: req.body.rating
   })
   .then(bike => {
-    res.redirect(`/bike/${bikes.id}`)
+    // console.log('this is bike id', bike.id)
+    res.redirect(`/bike/${bike.id}`)
   }).catch(err => {
     res.status(400).json(err);
   });

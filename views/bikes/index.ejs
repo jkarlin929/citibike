@@ -5,7 +5,21 @@
 
 <p>Dark green routes indicated dedicated bicycle routes. Light green routes indicate streets with dedicated “bike lanes.” Dashed routes indicate streets or paths otherwise recommended for bicycle usage.</p>
 
-<a href="<%=`/bike/${bikes.id}` %>">All Stations</a>
+<% let citiBikeStation = bikes %>
+
+<br />
+
+<select>
+<%
+let options = ["citiBikeStation[j].stationName"];
+for(j = 0; j < citiBikeStation.length; j++)
+{
+let selected = ( citiBikeStation[j].stationName ) ? "selected" : ""; %>
+  <option value="<options [ j ] %>"
+  <%= selected[0] %>>
+  <%= citiBikeStation[j].stationName %></option>
+<% } %>
+</select>
 
 <br />
 

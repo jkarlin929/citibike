@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const PORT = process.env.PORT || 3000;
-const bikesRouter = require('./routes/bike-routes');
 const bikeRouter = require('./routes/bike-routes');
 
 app.use(methodOverride('_method'));
@@ -17,7 +16,7 @@ app.use(express.static('public'));
 app.use('/bike', bikeRouter)
 
 app.get('/', (req, res) => {
-  res.send('Hello Friend');
+  res.render('bikes/home');
 });
 
 app.listen(PORT, () => {
