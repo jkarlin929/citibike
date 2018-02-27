@@ -2,7 +2,7 @@
 <%- include ../partials/boilerplate %>
 
 <div id="index">
-  <h1 id="indexTitle">CitiBike</h1>
+  <h1 id="indexTitle">CitiBike Locator</h1>
 
     <div id="bikeLayerInfo">
       <div id="aboutMap">About the Map: </div> <br /> Select a bike icon for information. Dark green routes indicated dedicated bicycle routes. Light green routes indicate streets with dedicated “bike lanes.” Dashed routes indicate streets or paths otherwise recommended for bicycle usage.</div>
@@ -23,27 +23,66 @@
   Rating: <%= b.rating %></li>
 </ul>
   <% }) %>
-
-
-
-
 </div>
+
 <%- include ../partials/endplate %>
+
+<div id="floating-panel">
+  <b>Start: </b>
+    <select id="start">
+      <% for (let j = 0; j < bikesData.length; j ++) { %>
+        <option value="<%= bikesData[j].stationName %>">
+      <%= bikesData[j].stationName %></option>
+    <% } %>
+    </select>
+    <b>End: </b>
+    <select id="end">
+      <% for (let j = 0; j < bikesData.length; j ++) { %>
+        <option value="<%= bikesData[j].stationName %>">
+      <%= bikesData[j].stationName %></option>
+    <% } %>
+    </select>
+</div>
 
 <div id="map"></div>
   <script>
-  console.log(<%- JSON.stringify(bikesData[0].longitude) %>)
-
     function initMap() {
       let position = {lat: 40.76727216, lng: -73.99392888};
+      let directionsService = new google.maps.DirectionsService;
+      let directionsDisplay = new google.maps.DirectionsRenderer;
       let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
         center: position
         });
+      directionsDisplay.setMap(map);
+
+      let onChangeHandler = function() {
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('start').addEventListener('change', onChangeHandler);
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+
+
       let icon = {
         url: 'https://lh3.googleusercontent.com/gJUqimHMOz13OsLXS2x78CokU42VSPD-yTEM7vXPUFz00wsfUwCeFKWned8p7QjVOg=w300',
         scaledSize: new google.maps.Size(45, 45)
       };
+
+    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
+          travelMode: 'BICYCLING',
+          avoidHighways: true,
+          provideRouteAlternatives: true
+        }, function(response, status) {
+        if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+        } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
 
       //add bike routes to google map
       let bikeLayer = new google.maps.BicyclingLayer();
@@ -54,8 +93,8 @@
       // document.getElementsByTagName('head')[0].appendChild(script);
 
       let citiBikeData = <%- JSON.stringify(bikesData) %>
-      for(i = 0; i < citiBikeData.length; i++){
-        let bikeIcon = new google.maps.Marker({
+        for(i = 0; i < citiBikeData.length; i++){
+      let bikeIcon = new google.maps.Marker({
         class: 'bikeIcon',
         position: {
           lat: citiBikeData[i].latitude,
@@ -64,12 +103,12 @@
         map: map,
         icon: icon
     });
-        let contentString = '<div id="content">' + '<div id="sitNotice">' + '</div>' + '<h1 id="firstHeading" class="firstHeading"> Station Name: ' + citiBikeData[i].stationName + '</h1>' + '<div id="bodyContent">' + '<p>Total Docks: ' + citiBikeData[i].totalDocks + '</p>' + '<p>Available Docks: ' + citiBikeData[i].availableDocks + '</p>' + '<p>Available Bikes: ' + citiBikeData[i].availableBikes + '</p>' + '<p>Station Status: ' + citiBikeData[i].statusValue + '</p>' + '</div>'
+    let contentString = '<div id="content">' + '<div id="sitNotice">' + '</div>' + '<h1 id="firstHeading" class="firstHeading"> Station Name: ' + citiBikeData[i].stationName + '</h1>' + '<div id="bodyContent">' + '<p>Total Docks: ' + citiBikeData[i].totalDocks + '</p>' + '<p>Available Docks: ' + citiBikeData[i].availableDocks + '</p>' + '<p>Available Bikes: ' + citiBikeData[i].availableBikes + '</p>' + '<p>Station Status: ' + citiBikeData[i].statusValue + '</p>' + '</div>'
 
-        let infoWindow = new google.maps.InfoWindow({
+    let infoWindow = new google.maps.InfoWindow({
           content: contentString
         });
-        bikeIcon.addListener('click', function() {
+      bikeIcon.addListener('click', function() {
           infoWindow.open(map, bikeIcon);
         });
   }
