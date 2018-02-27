@@ -7,10 +7,7 @@
     <div id="bikeLayerInfo">
       <div id="aboutMap">About the Map: </div> <br /> Select a bike icon for information. Dark green routes indicated dedicated bicycle routes. Light green routes indicate streets with dedicated “bike lanes.” Dashed routes indicate streets or paths otherwise recommended for bicycle usage.</div>
 
-
-
   <br />
-
   <br />
 
   <a href="/bike/new">Add Location To Favorites</a>
@@ -19,6 +16,15 @@
   <br />
   <h3>My Favorite Stations: </h3>
 
+<% bikes.forEach(b => { %>
+
+<ul>
+  <li>Station Name: <%= b.intersection %>
+  Rating: <%= b.rating %></li>
+</ul>
+  <% }) %>
+
+
 
 
 </div>
@@ -26,6 +32,8 @@
 
 <div id="map"></div>
   <script>
+  console.log(<%- JSON.stringify(bikesData[0].longitude) %>)
+
     function initMap() {
       let position = {lat: 40.76727216, lng: -73.99392888};
       let map = new google.maps.Map(document.getElementById('map'), {
@@ -45,11 +53,14 @@
       script.src = 'https://feeds.citibikenyc.com/stations/stations.json';
       // document.getElementsByTagName('head')[0].appendChild(script);
 
-      let citiBikeData = <%- JSON.stringify(bikes) %>
+      let citiBikeData = <%- JSON.stringify(bikesData) %>
       for(i = 0; i < citiBikeData.length; i++){
         let bikeIcon = new google.maps.Marker({
         class: 'bikeIcon',
-        position: {lat: citiBikeData[i].latitude, lng: citiBikeData[i].longitude},
+        position: {
+          lat: citiBikeData[i].latitude,
+          lng: citiBikeData[i].longitude
+        },
         map: map,
         icon: icon
     });

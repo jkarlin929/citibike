@@ -3,17 +3,34 @@ const Bike = require('../models/bike');
 const bikeController = {};
 
 bikeController.index = (req,res) => {
+  Bike.findAll()
+  .then(bike => {
 axios({
   method: 'get',
   url: 'https://feeds.citibikenyc.com/stations/stations.json'
 }).then(data => {
-  res.render('bikes/index', {
-    bikes: data.data.stationBeanList
+    res.render('bikes/index', {
+    bikesData: data.data.stationBeanList,
+    bikes: bike
+    })
   })
 }).catch(err => {
   res.status(400).json(err);
   });
 };
+
+// bikeController.index = (req,res) => {
+// axios({
+//   method: 'get',
+//   url: 'https://feeds.citibikenyc.com/stations/stations.json'
+// }).then(data => {
+//   res.render('bikes/index', {
+//     bikes: data.data.stationBeanList
+//   })
+// }).catch(err => {
+//   res.status(400).json(err);
+//   });
+// };
 
 bikeController.show = (req, res) => {
   Bike.findById(req.params.id)
@@ -73,7 +90,7 @@ bikeController.new = (req, res) => {
   // console.log('found stuff', data.data)
   Bike.findAll()
   .then(bike => {
-    // console.log('second stuff', data.data)
+    console.log('this is bike', bike)
     res.render('bikes/new', {
       bikes: bike,
       data: data.data.stationBeanList
