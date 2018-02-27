@@ -1,17 +1,36 @@
 body{
-  background: snow;
+  background-color: snow;
 }
 
 h1{
   color: blue;
+  font-family: 'Scada', sans-serif;
 }
 
 h3{
   background-color: red;
 }
 
-.homePage{
+p{
+  font-family: 'Marck Script', cursive;
+}
+
+footer{
+   position: fixed;
+   text-align: center;
+   left: 0px;
+   bottom: 0px;
+   height: 30px;
+   width: 100%;
+}
+
+#homePageText{
   text-align: center;
+}
+
+#homePageTitle{
+  text-align: center;
+  font-size: 45px;
 }
 
 #homeImg{
@@ -34,6 +53,26 @@ h3{
 }
 
 #map{
-  height: 600px;
+  height: 700px;
   width: 80%;
+}
+
+#aboutMap{
+  text-align: center;
+}
+
+#bikeLayerInfo{
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 30px;
+  width: 45%;
+}
+
+#index{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#indexTitle{
+  font-size: 45px;
 }

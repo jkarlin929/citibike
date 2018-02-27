@@ -1,22 +1,27 @@
 <%# views/bikes/index.ejs %>
 <%- include ../partials/boilerplate %>
 
-<h1>CitiBike</h1>
+<div id="index">
+  <h1 id="indexTitle">CitiBike</h1>
 
-<p>Dark green routes indicated dedicated bicycle routes. Light green routes indicate streets with dedicated “bike lanes.” Dashed routes indicate streets or paths otherwise recommended for bicycle usage.</p>
+    <div id="bikeLayerInfo">
+      <div id="aboutMap">About the Map: </div> <br /> Select a bike icon for information. Dark green routes indicated dedicated bicycle routes. Light green routes indicate streets with dedicated “bike lanes.” Dashed routes indicate streets or paths otherwise recommended for bicycle usage.</div>
 
-<% let citiBikeStation = bikes %>
 
-<br />
 
-<br />
+  <br />
 
-<a href="/bike/new">Add Location To Favorites</a>
+  <br />
 
-<br />
-<br />
-<h3>My Favorite Stations: </h3>
+  <a href="/bike/new">Add Location To Favorites</a>
 
+  <br />
+  <br />
+  <h3>My Favorite Stations: </h3>
+
+
+
+</div>
 <%- include ../partials/endplate %>
 
 <div id="map"></div>
