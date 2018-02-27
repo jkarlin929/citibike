@@ -1,9 +1,8 @@
 <%# views/bikes/show.ejs %>
 
-
-<h1>Station Name:</h1>
-<h3><%= bikes.intersection %></h3>
-<p>Rated: <%= bikes.rating %></p>
+<h1>Station Name:
+<%= bikes.intersection %></h1>
+<h3>Rated: <%= bikes.rating %></h3>
 
 <a href="/bike">Back </a>
 
@@ -14,4 +13,3 @@
 <form action="<%= `/bike/${bikes.id}?_method=DELETE` %>" method="POST">
   <input type="submit" value="Delete" />
 </form>
-

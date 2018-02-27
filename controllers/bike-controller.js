@@ -53,12 +53,11 @@ bikeController.update = (req, res) => {
     method: 'get',
     url: 'https://feeds.citibikenyc.com/stations/stations.json'
   }).then(data => {
-    console.log('this is update data', data.data)
-    console.log('intersection', req.body)
+    // console.log('this is update data', data.data)
+    // console.log('intersection', req.body)
   Bike.update({
     intersection: req.body.intersection,
-    rating: req.body.rating,
-    data: data.data.stationBeanList
+    rating: req.body.rating
   }, req.params.id)
   .then(() => {
     res.redirect(`/bike/${req.params.id}`)
