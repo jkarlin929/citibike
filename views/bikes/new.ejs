@@ -1,18 +1,34 @@
-<%# views/bike/ne.ejs %>
+<%# views/bike/knew.ejs %>
 
 <h1> Create a Location </h1>
 
 <form action="/bike" method="POST">
-  <label for="intersection">Intersection</label>
-  <input id="intersection" type="text" name="intersection" />
+  <label for="intersection"> Station Name: </label>
+
+  <select name="intersection">
+    <% for (let j = 0 ; j < data.length ; j ++) { %>
+    <option value="<%= data[j].stationName %>">
+    <%= data[j].stationName %></option>
+    <% } %>
+</select>
 
   <br />
+  <br />
 
-  <label for="rating"> Rating </label>
-  <input id-"rating" type="text" name="rating" />
+<label for="rating"> Rating </label>
 
+<select name="rating">
+  <option value="Awful">Awful</option>
+  <option value="Bad">Bad</option>
+  <option value="Neutral" selected>Neutral</option>
+  <option value="Good">Good</option>
+  <option value="Great">Great</option>
+</select>
+
+  <br />
   <br />
 
   <input type="submit" value="Create Location" />
 </form>
+
   <a href="/bike">Cancel</a>

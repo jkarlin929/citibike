@@ -4,14 +4,27 @@
 
 <form action="<%= `/bike/${bikes.id}?_method=PUT` %>" method="POST">
 
-<label for="intersection">Station Name</label>
-<input id="intersection" type="text" name="intersection" value="<%= bikes.intersection %>" />
+<select name="intersection">
+    <% for (let j = 0 ; j < data.length ; j ++) { %>
+    <option value="<%= data[j].stationName %>">
+    <%= data[j].stationName %></option>
+    <% } %>
+</select>
 
+<br />
 <br />
 
 <label for="rating">Rating</label>
-<input id="rating" type="text" name="rating" value="<%= bikes.rating %>" />
+<select name="rating">
+  <option value="Awful">Awful</option>
+  <option value="Bad">Bad</option>
+  <option value="Neutral" selected>Neutral</option>
+  <option value="Good">Good</option>
+  <option value="Great">Great</option>
+</select>
 
+
+<br />
 <br />
 
 <input type="submit" value="Save" />

@@ -27,34 +27,58 @@ bikeController.show = (req, res) => {
 }
 
 bikeController.edit = (req, res) => {
+  axios({
+  method: 'get',
+  url: 'https://feeds.citibikenyc.com/stations/stations.json'
+}).then(data => {
+  console.log('this is edit data', data)
   Bike.findById(req.params.id)
   .then(bike => {
     res.render('bikes/edit', {
-      intersection: intersection,
-      rating: rating
+      bikes: bike,
+      data: data.data.stationBeanList
     }).catch(err => {
       res.status(400).json(err);
     })
   })
+})
 }
 
 bikeController.update = (req, res) => {
+  axios({
+    method: 'get',
+    url: 'https://feeds.citibikenyc.com/stations/stations.json'
+  }).then(data => {
+    console.log('this is update data', data.data)
+    console.log('intersection', req.body)
   Bike.update({
     intersection: req.body.intersection,
-    rating: req.body.rating
+    rating: req.body.rating,
+    data: data.data.stationBeanList
   }, req.params.id)
   .then(() => {
-    res.redirect(`bike/${req.params.id}`)}).catch(err => {
+    res.redirect(`/bike/${req.params.id}`)
+  })
+    .catch(err => {
     res.status(400).json(err);
+  });
   });
 };
 
 bikeController.new = (req, res) => {
+  axios({
+  method: 'get',
+  url: 'https://feeds.citibikenyc.com/stations/stations.json'
+}).then(data => {
+  // console.log('found stuff', data.data)
   Bike.findAll()
   .then(bike => {
-    res.render('bikes/new',{
-      bikes: bike
-    }).catch(err => {
+    // console.log('second stuff', data.data)
+    res.render('bikes/new', {
+      bikes: bike,
+      data: data.data.stationBeanList
+    })
+}).catch(err => {
       res.status(400).json(err)
     });
   });

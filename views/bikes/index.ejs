@@ -9,24 +9,13 @@
 
 <br />
 
-<select>
-<%
-let options = ["citiBikeStation[j].stationName"];
-for(j = 0; j < citiBikeStation.length; j++)
-{
-let selected = ( citiBikeStation[j].stationName ) ? "selected" : ""; %>
-  <option value="<options [ j ] %>"
-  <%= selected[0] %>>
-  <%= citiBikeStation[j].stationName %></option>
-<% } %>
-</select>
-
 <br />
 
 <a href="/bike/new">Add Location To Favorites</a>
 
 <br />
 <br />
+<h3>My Favorite Stations: </h3>
 
 <%- include ../partials/endplate %>
 
