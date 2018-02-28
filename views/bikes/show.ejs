@@ -1,15 +1,31 @@
 <%# views/bikes/show.ejs %>
+<html lang='en'>
+  <head>
+  <meta charset='UTF-8' />
+  <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+  <title>Citibike</title>
+  <link rel="icon" href="https://cdn.iconscout.com/public/images/icon/free/png-512/person-biking-riding-travel-bike-32ba9c65398cb07b-512x512.png">
+  <link href="https://fonts.googleapis.com/css?family=Caudex|Marck+Script|Reenie+Beanie|Scada" rel="stylesheet">
+  </head>
+  <body style="background:#aec7ef;">
+<div style="display:flex;flex-direction:column;align-items:center;font-family:Caudex;">
 
 <h1>Station Name:
 <%= bikes.intersection %></h1>
 <h3>Rated: <%= bikes.rating %></h3>
 
-<a href="/bike">Back </a>
+<a href="/bike" style="font-family:'Caudex',serif;font-size: 22px;text-shadow:1px,0.5px black;text-decoration: none;text-align:center"> ← Let's Go Home </a>
 
-<br/ >
+<span>OR</span>
 
-<a href="<%= `/bike/${bikes.id}/edit` %>"> Edit Location </a>
+<a href="<%= `/bike/${bikes.id}/edit` %>" style="font-family:'Caudex',serif;font-size: 22px;text-shadow:1px,0.5px black;text-decoration: none;text-align:center"> Edit Location </a>
+<br />
 
 <form action="<%= `/bike/${bikes.id}?_method=DELETE` %>" method="POST">
-  <input type="submit" value="Delete" />
+  <input type="submit" value="Delete" style="background-color:#a55b7c;border: none;color:white;padding:17px 34px;text-align:center;text-decoration: none;font-size:17px;width:100%" />
 </form>
+<img src="http://www.nycbikemaps.com/wp-content/uploads/2013/05/citi-bike-meet-the-bike.jpg" style="mix-blend-mode:multiply;" />
+
+  </div>
+</body>
+</html>

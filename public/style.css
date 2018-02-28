@@ -11,10 +11,6 @@ h2{
   font-family: 'Scada', sans-serif;
 }
 
-p{
-  font-family: 'Marck Script', cursive;
-}
-
 footer{
   position: fixed;
   right: 0;
@@ -47,6 +43,7 @@ ul{
 }
 
 #homePageText{
+  font-family: 'Marck Script', cursive;
   text-align: center;
 }
 
@@ -143,7 +140,16 @@ ul{
    padding: 10px;
 }
 
-/*#floating-panel{
+#bodyContent{
+  font-family: 'Caudex', serif;
+  font-size: 15px;
+}
 
-
-}*/
+@media screen and (max-width: 1000px) and (min-width: 648px) {
+  #homePageTitle, #homePageText, #homeDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

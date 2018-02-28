@@ -16,13 +16,18 @@ This site will allow the user to view Citibike locations throught New York City.
 # Functional Components
 |Component|Priority|EST Time|Invested Time|Actual Time|
 |--------:|:------:|--------|-------------|----------:|
-|Google Map| H     |  20hrs | 9hrs        |           |
-| CitiBike JSON| H |  10hrs | N/A         |           |
-| CRUD     |  H     |  8hrs  | N/A        |           |
-| Nav Bar  |   L    |  5hrs  |  N/A       |           |
+|Google Map| H     |  20hrs | 24hrs       |  24hrs    |
+| CitiBike JSON| H |  10hrs | 3hrs        |  3hrs     |
+| CRUD     |  H     |  8hrs  | 9hrs       |    9hrs       |
+| Nav Bar  |   L    |  5hrs  |  0hrs      |      N/A     |
 
 # WireFrames
 [WireFrames](http://res.cloudinary.com/jkarlin929/image/upload/v1519175908/WireFrameCiti.jpg)
 
 [Time Priority Matrix](http://res.cloudinary.com/jkarlin929/image/upload/v1519175941/Time%20Matrix.jpg)
 
+# Issues and Resolutions
+-GET /bike/new 304 305.686 ms - -
+SELECT * FROM favorite_locations WHERE id = 'style.css'
+(node:73269) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): error: invalid input syntax for integer: "style.css".  
+I received this error when going to the new page for this project. It didn't mae sense then and doesn't make sense now.

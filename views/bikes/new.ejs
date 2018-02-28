@@ -1,11 +1,24 @@
 <%# views/bike/new.ejs %>
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+  <meta charset='UTF-8' />
+  <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+  <title>Citibike</title>
+  <link rel="icon" href="https://cdn.iconscout.com/public/images/icon/free/png-512/person-biking-riding-travel-bike-32ba9c65398cb07b-512x512.png">
+  <link href="https://fonts.googleapis.com/css?family=Caudex|Marck+Script|Reenie+Beanie|Scada" rel="stylesheet">
+  </head>
+  <body style="background:#aec7ef;">
+<div style="display:flex;flex-direction:column;align-items:center;font-family:Caudex;">
 
-<h1 style="color:blue;"> Create a Location </h1>
+<h1 style="color:#00135e;"> Add a New Favorite Station for Your Citibike </h1>
+
 
 <form action="/bike" method="POST">
   <label for="intersection"> Station Name: </label>
 
-  <select name="intersection">
+  <select name="intersection" style="margin:20px;width:250px;padding: 5px 35px 5px 5px;font-size: 16px;border: 1px solid #ccc;height: 40px;appearance: none;  -webkit-appearance: none;
+  -webkit-appearance-moz-appearance: none;background: url(http://icons.iconarchive.com/icons/iconsmind/outline/512/Arrow-DowninCircle-icon.png) 99% / 13% no-repeat #eee;">
     <% for (let j = 0; j < data.length; j ++) { %>
     <option value="<%= data[j].stationName %>">
     <%= data[j].stationName %></option>
@@ -15,9 +28,10 @@
   <br />
   <br />
 
-<label for="rating"> Rating </label>
+<label for="rating"> Rating: </label>
 
-<select name="rating">
+<select name="rating" style="margin:20px;width:250px;padding:5px 35px 5px 5px;font-size:16px;border:1px solid #ccc;height:40px;appearance:none;-webkit-appearance: none;
+  -moz-appearance: none;background: url(http://icons.iconarchive.com/icons/iconsmind/outline/512/Arrow-DowninCircle-icon.png) 99% / 13% no-repeat #eee;">
   <option value="Awful">Awful</option>
   <option value="Bad">Bad</option>
   <option value="Neutral" selected>Neutral</option>
@@ -28,7 +42,12 @@
   <br />
   <br />
 
-  <input type="submit" value="Create Location" />
+  <input type="submit" value="Create Location" style="background-color:#a55b7c;border: none;color:white;padding:17px 34px;text-align:center;text-decoration: none;font-size:17px;width:100%"/>
 </form>
+<br />
 
-  <a href="/bike">Cancel</a>
+  <a href="/bike" style="font-family:'Caudex',serif;font-size: 22px;text-shadow:1px,0.5px black;text-decoration: none;text-align:center"> ← Let's Go Home </a>
+
+  </div>
+</body>
+</html>
