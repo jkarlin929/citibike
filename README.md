@@ -1,4 +1,4 @@
-# Js-Citibike
+# Js-Citibike  
 
 # Citibike Tracker
 This site will allow the user to view Citibike locations throught New York City. They will be able to save their favorite locations, too.
@@ -22,8 +22,8 @@ This site will allow the user to view Citibike locations throught New York City.
 |--------:|:------:|--------|-------------|----------:|
 |Google Map| H     |  20hrs | 24hrs       |  24hrs    |
 | CitiBike JSON| H |  10hrs | 3hrs        |  3hrs     |
-| CRUD     |  H     |  8hrs  | 9hrs       |    9hrs       |
-| Nav Bar  |   L    |  5hrs  |  0hrs      |      N/A     |
+| CRUD     |  H     |  8hrs  | 9hrs       |    9hrs    |
+| Nav Bar  |   L    |  5hrs  |  0hrs      |      N/A    |
 
 # WireFrames
 [WireFrames](http://res.cloudinary.com/jkarlin929/image/upload/v1519175908/WireFrameCiti.jpg)

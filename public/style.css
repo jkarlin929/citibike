@@ -110,6 +110,7 @@ ul{
   color: #3b8524;
   text-decoration: dashed underline;
 }
+
 #link{
   font-family: 'Caudex', serif;
   font-size: 22px;
@@ -119,6 +120,10 @@ ul{
 
 #link:visited, #link:unvisited{
   color: #030E63;
+}
+
+#link:hover{
+  color: #e1b356;
 }
 
 #favoriteList{
