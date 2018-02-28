@@ -6,12 +6,16 @@ This site will allow the user to view Citibike locations throught New York City.
 # MVP
 -Use Google Maps API to show citibike locations and data for the location.  
 -Incorporate Citibike live data.  
--Use CRUD functionality to show favorite locations.  
+-Use CRUD functionality to display favorite locations.  
 
 # POST-MVP
 -Calculate routes between stations and the length of time.  
 -Show bicycle routes that google maps has embedded.  
--Incorporate NYC crash data at intersections (probably would require creating an API).    
+-Incorporate NYC crash data at intersections (probably would require creating an API).   
+
+# Technologies Used
+-This project utilizes Node and Express, EJS, and CSS.   
+-It also utilizes the Google Maps API and retrives data from the NYC Open Data regarding live data from Citibike.   
 
 # Functional Components
 |Component|Priority|EST Time|Invested Time|Actual Time|
