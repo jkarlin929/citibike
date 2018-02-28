@@ -28,7 +28,7 @@ This site will allow the user to view Citibike locations throught New York City.
 # Helper Functions
 |Function | Description |
 |--------:|:-----------:|
-|Link to a page by id in the table | <a id="letsRide" href="<%=`/bike/${b.id}`%>">Let's Ride  🚲</a>|
+|Link to a page by id in the table | href="<%=`/bike/${b.id}`%>">Let's Ride |
 
 
 # WireFrames
