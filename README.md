@@ -25,6 +25,12 @@ This site will allow the user to view Citibike locations throught New York City.
 | CRUD     |  H     |  8hrs  | 9hrs       |    9hrs    |
 | Nav Bar  |   L    |  5hrs  |  0hrs      |      N/A    |
 
+# Helper Functions
+|Function | Description |
+|--------:|:-----------:|
+|Link to a page by id in the table | <a id="letsRide" href="<%=`/bike/${b.id}`%>">Let's Ride  🚲</a>|
+
+
 # WireFrames
 [WireFrames](http://res.cloudinary.com/jkarlin929/image/upload/v1519175908/WireFrameCiti.jpg)
 
@@ -35,3 +41,5 @@ This site will allow the user to view Citibike locations throught New York City.
 SELECT * FROM favorite_locations WHERE id = 'style.css'
 (node:73269) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): error: invalid input syntax for integer: "style.css".  
 I received this error when going to the new page for this project. It didn't mae sense then and doesn't make sense now.
+
+All images are not mine and belong to the owners.
