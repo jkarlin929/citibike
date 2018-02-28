@@ -121,7 +121,8 @@
   <div id="listItems">
     <ul>
       <li> <b class="listTitle">Station Name:</b> <%= b.intersection %> <br />
-      <b class="listTitle">Rating:</b> <%= b.rating %></li>
+      <b class="listTitle">Rating:</b> <%= b.rating %></li> <br />
+      <a id="letsRide" href="<%=`/bike/${b.id}`%>">Let's Ride  🚲</a>
     </ul>
   </div>
     <% }) %>

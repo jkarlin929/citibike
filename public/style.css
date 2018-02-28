@@ -39,7 +39,7 @@ ul{
 }
 
 .listTitle{
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #homePageText{
@@ -134,10 +134,37 @@ ul{
 }
 
 #listItems{
-   box-shadow: inset 0 0 10px #e9eee4;
-   width: 30%;
-   margin: 3px;
-   padding: 10px;
+  box-shadow: inset 0 0 10px #0d1246;
+  background-color: #0d1246;
+  width: 30%;
+  margin: 3px;
+  padding: 10px;
+  transition: 0.2s;
+  color: #a2dbc5;
+  padding: 15px;
+  border-radius: 2%;
+}
+
+#listItems:hover{
+  box-shadow: inset 0 0 15px #0b1443;
+  color: #0b1443;
+  background-color: #8a0f80;
+  padding: 18px;
+}
+
+#letsRide{
+  text-decoration: none;
+  font-family: 'Knewave', cursive;
+  transition: 0.3s;
+  font-size: 20px;
+  text-shadow: 1px 0.5px #c7ae7d;
+  color: #bddff9;
+}
+
+#letsRide:hover{
+  font-size: 25px;
+  color: #f2e033;
+  text-shadow: 2px 1px #c7ae7d;
 }
 
 #bodyContent{
