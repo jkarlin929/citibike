@@ -117,6 +117,8 @@ ul{
   font-size: 22px;
   text-shadow: 1px 1px black;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 #link:visited, #link:unvisited{
