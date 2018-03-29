@@ -1,21 +1,19 @@
-# Js-Citibike  
-
 # Citibike Tracker
-This site will allow the user to view Citibike locations throught New York City. They will be able to save their favorite locations, too.
+This site will allow the user to view Citibike locations throughout New York City. The user will be able to save their favorite locations, too.
 
 # MVP
 -Use Google Maps API to show citibike locations and data for the location.  
--Incorporate Citibike live data.  
--Use CRUD functionality to display favorite locations.  
+-Incorporate Citibike live data sourced from NYC open data.  
+-Use CRUD functionality to display and save favorite locations.  
 
 # POST-MVP
--Calculate routes between stations and the length of time.  
--Show bicycle routes that google maps has embedded.  
+-Calculate routes and step-by-step directions between stations and the length of time.  
+-Show varying bicycle routes that google maps has embedded.  
 -Incorporate NYC crash data at intersections (probably would require creating an API).   
 
 # Technologies Used
 -This project utilizes Node and Express, EJS, and CSS.   
--It also utilizes the Google Maps API and retrives data from the NYC Open Data regarding live data from Citibike.   
+-It also utilizes the Google Maps API. 
 
 # Functional Components
 |Component|Priority|EST Time|Invested Time|Actual Time|
